@@ -27,7 +27,7 @@ if($request->isMethod('post')){
             ]);
 
             if ($validator->fails()) {
-                return redirect('post/create')
+                return redirect('movie/create')
                             ->withErrors($validator)
                             ->withInput();
         }
@@ -42,7 +42,7 @@ if($request->isMethod('post')){
         $movie->budget = $request->budget;
         $movie->duree = $request->duree;
         $movie->annee = $request->annee;
-        $movie->administrators_id = 1;
+        //$movie->administrators_id = 1;
         $movie->save();
 
         return redirect('movie/index');

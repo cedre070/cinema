@@ -13,8 +13,9 @@
               </div>
               <div class="panel-body">
 
-                <form class="form-horizontal" role="form">
+                <form class="form-horizontal" action="{{ route('movie.create') }}" method="post">
 
+{{ csrf_field() }}
                   <div class="form-group">
                     <label for="inputStandard" class="col-lg-3 control-label">Titre</label>
                     <div class="col-lg-8">
@@ -23,6 +24,16 @@
                       </div>
                     </div>
                   </div>
+
+                  <!--le faire pour tout les composant-->
+                  @if ($errors->has('title'))
+                          <p class="help-block text-danger">
+                              {{ $errors->first('title') }}
+                          </p>
+                            @endif
+
+
+
 
                   <div class="form-group">
                     <label for="inputSelect" class="col-lg-3 control-label">Type</label>
